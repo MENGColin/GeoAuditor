@@ -1,0 +1,110 @@
+data:
+  country_count: 30
+  feature_cols:
+  - Aspect
+  - BLUE
+  - BuildingDensity
+  - BuildingDensity_Big
+  - BuildingDensity_small
+  - BuildingRatio
+  - BuildingSize
+  - BuildingSum
+  - DistanceToHealthSites
+  - DistanceToRoads
+  - DistanceToWaterways
+  - Elevation
+  - GREEN
+  - Greenspace_Distance_NDVI
+  - Greenspace_Distance_WorldCover
+  - Greenspace_Ratio_NDVI
+  - Greenspace_Ratio_WorldCover
+  - LSTmax
+  - LSTmax_relative
+  - LSTmean
+  - LSTmean_relative
+  - LSTmedian
+  - LSTmedian_relative
+  - LSTmin
+  - LSTmin_relative
+  - NBmax
+  - NBmean
+  - NBmedian
+  - NBmin
+  - NIR
+  - NImax
+  - NImean
+  - NImedian
+  - NImin
+  - NWmax
+  - NWmean
+  - NWmedian
+  - NWmin
+  - RE1
+  - RE2
+  - RE3
+  - RE4
+  - RED
+  - SWIR1
+  - SWIR2
+  - Slope
+  - URBAN_FLAG
+  - VH
+  - VV
+  label_cols:
+  - is_water_poor
+  - is_electr_poor
+  - is_facility_poor
+  - is_tele_poor
+  - is_u5mr_poor
+  - electr_quintile
+  - water_quintile
+  - facility_quintile
+  - tele_quintile
+  - u5mr_quintile
+  leak_cols:
+  - electr_poor_rate
+  - facility_delivery_rate
+  - water_time_gt30_rate
+  - telephone
+  - u5mr_synth
+  - households_n
+  meta_cols:
+  - system:index
+  - row_id
+  - country
+  - lat
+  - lon
+  - cluster_id
+  - .geo
+  missing_policy:
+    categorical: most_frequent
+    numeric: median
+  path: data/processed/DHS_data/DHS_africa_30_1121.csv
+  sample_count: 23235
+  tasks:
+  - is_water_poor
+  - is_electr_poor
+  - is_facility_poor
+  - is_tele_poor
+  - is_u5mr_poor
+meta:
+  created_date: '2026-01-28 16:58:45'
+  data_hash: bcfb386fe9331e2b
+  feature_hash: 1b1adbab0078c295
+  missing_policy_hash: 5664fb7ff8b3c9f8
+  project_name: KDD-GeoAuditor
+  seed: 42
+  version: '1.0'
+model:
+  xgb:
+    colsample_bytree: 0.8
+    eval_metric: auc
+    learning_rate: 0.1
+    max_depth: 6
+    n_estimators: 100
+    random_state: 42
+    subsample: 0.8
+spatial:
+  K: 5
+  cell_size: 0.1
+  delta_dynamic_multiplier: 1.5
